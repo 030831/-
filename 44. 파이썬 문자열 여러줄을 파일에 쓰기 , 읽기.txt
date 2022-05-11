@@ -1,0 +1,69 @@
+#문자열 여러줄을 파일에 쓰기 , 읽기
+
+반복문을 사용하여 여러줄을 쓰면 됨
+
+with open('hello.txt' , 'w' ) as file:
+	for i in range(3):
+		file.write('Hello , world! {0}\n'.format(i))
+출력시
+Hello,world! 0
+Hello,world! 1
+Hello,world! 2 가 출력됨
+
+#리스트에 들어있는 문자열을 파일에  쓰기
+
+lines=['안녕하세요.\n' , '파이썬\n' , '코딩 도장입니다.\n' ]
+
+with open('hello.txt' , 'w' ) as file:
+	file.writelines(lines) 입력시
+안녕하세요.
+파이썬
+코딩 도장입니다. <- 출력결과
+
+#파일의 내용을 한 줄씩 리스트로 가져오기
+
+with open('hello.txt' , 'r' )as file:
+	lines=file.readlines()
+	print(lines)
+실행시
+['안녕하세요.\n' , '파이썬\n' , '코딩 도장입니다.\n' ] 이렇게 출력이됨
+
+한 줄씩 리스트 형태로 출력함
+
+#파일의 내용을 한 줄씩 읽기
+readline 을 사용함
+
+with open('hello.txt' , 'r')as file:
+	line=None
+	while line!='': <- 공백이 아닐때까지 반복
+	line=file.readline() <= 라인에 파일을 추가
+	print(line.strip('\n')) <- n을 제외하고 출력
+안녕하세요.
+파이썬
+코딩도장입니다. 라고 출력이 됨
+
+파일에 문자열이 몇줄이나 있는지 모르기 때문에 readline으로 파일을 읽을때는
+while 반복문을 활용해야함
+
+readline은 더 이상 읽을 줄이 없을 때는 빈 문자열을 반환하는데, while에서는
+이런 특성을 이용하여 조건식을 만들어줌
+
+즉 , line!=' ' 와 같은 조건을 씀
+
+line=file.readline() 이렇게 변수 line에 내용을 넣어줌
+
+특히 변수 line은 while 로 반복하기 전에 None로 무조건 초기화 해줘야함
+
+line을 초기화 하지 않으면 line!='' 은 거짓이 되므로 반복을 하지않고 
+코드가 그냥 끝나버림
+
+strip메서드로 \n을 삭제함 이를 안할시 2줄이나 띄워서  글이 나옴
+
+for문을 사용했을때는
+
+with open('hello.txt' , 'r')as file:
+	for line in file:
+		print(line.strip('\n'))
+안녕하세요.
+파이썬
+코딩 도장입니다. 라고 출력됨.

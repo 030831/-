@@ -1,0 +1,89 @@
+#import로 모듈 가져오기
+
+모듈은 각종 변수 , 함수 , 클래스를 담고있는 파일이고
+패키지는 여러 모듈을 묶은것임.
+
+파이썬을 설치할 때 다양한 모듈과 패키지가 기본으로 설치됨.
+기본 모듈과 패키지로 부족하다면 다른사람이 만든 유명 모듈과 패키지를 설치해서 쓸 수 있음.
+
+
+모듈은 import 키워드로 가져올수있음.
+
+
+import 모듈1, 모듈2
+
+모듈.변수
+모듈.함수()
+모듈.클래스()
+
+
+import math
+math.pi 입력시
+3.14159265358973이 출력이 됨.
+
+math.sqrt(4.0)
+2가 출력이 됨.
+
+
+#import as로 모듈 이름 지정하기
+
+math를 일일히 입력하고 싶지 않을때는
+import as를 사용하여 모듈 이름을 지정할 수 있음
+
+import math as m
+
+m.sqrt(4.0) 입력시
+2가 출력이 됨.
+
+m.sqrt(2.0)
+1.414213~
+
+
+
+#from import로 모듈 일부만 가져오기
+
+from math import pi
+
+pi 입력시
+3.141592가 출력이 됨.
+
+
+from math import sqrt
+sqrt(4.0) 입력시
+2.0이 출력이 됨.
+
+
+math모듈에서 가져올 변수와 함수가 여러개일 때는 import 뒤에
+가져올 변수 , 함수 , 클래스를 콤바로 구분하여 여러개를 지정해주면됨.
+
+from math import pi,sqrt
+pi 입력시
+3.141592
+sqrt(4.0) 입력시
+2.0이 출력이 됨.
+
+#from import의 모듈의 모든 변수 함수 클래스를 가져오기
+
+from math import * 
+pi 입력시 3.14출력됨
+sqrt(4.0) 입력시
+2.0이 출력이 됨.
+
+
+#from import로 모듈의 일부를 가져온뒤 이름 지정하기
+
+from math import sqrt as s #sqrt 이름을 s로 지정
+
+s(4.0) 입력시
+2가 출력됨.
+
+여러개일경우는
+
+from math import pi as p , sqrt as s
+
+p 입력시
+3.14 출력
+
+s(4.0) 입력시
+2.0이 출력이 됨.
+

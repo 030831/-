@@ -1,0 +1,66 @@
+#기반 클래스의 속성 사용하기
+
+
+class Person:
+	def __init__(self):
+		print('Person__init__')
+		self.hello='안녕하세요.'
+
+class Student(Person):
+	def __init__(self):
+		print('Student__init__')
+		self.school= ' 파이썬 코딩 도장'
+
+james=Student()
+print(james.school)
+print(james.hello)
+
+실행을 해보면 에러가 발생하는데 .Person의 __init__의 메서드가 호출되지 않으면
+self.hello='안녕하세요' 도 실행되지 않아서 속성이 만들어지지 않음.
+
+
+즉 기반클래시은 Person 클래스에서 __init__ 메서드가 호출되지 않음.
+james.hello는 Student 클래스로 먼저 가기 때문에.
+
+
+#super()로 기반 클래스 초기화하기
+
+class Person:
+	def __init__(self):
+		print("Person__init__")
+		self.hello='안녕하세요.'
+
+class Student(Person):
+	def __init__(self):
+		print('Student__init")
+		super().__init__()  #super()로 기반 클래스의 __init__메서드를 호출함
+		self.school='파이썬 코딩 도장'
+
+james=Student()
+print(james.school)
+print(james.hello)
+실행시
+
+Student __init__
+Person __init__
+파이썬 코딩 도장
+안녕하세요.
+
+
+#기반 클래스를 초기화 하지 않아도 되는 경우
+파생 클래스에서 __init__ 메서드를 생략한다면 가능함.
+
+class Person:
+	def __init__(self):
+		print('Person__init__")
+		self.hello='안녕하세요'
+
+class Student(Person):
+	pass
+
+james=Student()
+print(james.hello) 입력시
+
+Person __init__
+안녕하세요. <- 출력이 됨.
+

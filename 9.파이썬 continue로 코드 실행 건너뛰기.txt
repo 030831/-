@@ -1,0 +1,12 @@
+#continue로 코드 실행 건너뛰기
+
+break는 완전히 끝내짐나
+continue는 아래의 조건문을 실행하지 않고
+처음부터 돌아가서 다시 수행함
+
+for i in range(100):
+	if i %2==0:
+		countinue
+print(i)
+
+while 반복문에서도 사용가능함

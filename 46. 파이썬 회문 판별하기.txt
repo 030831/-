@@ -1,0 +1,38 @@
+#회문 판별하기 , N-gram 만들기
+
+회문은 유전자 염기서열 분석에서 많이 쓰이고
+N-gram은 빅 데이터 분석 , 검색 엔진에서 많이 쓰임
+
+구글은 책들을 스캔해서 N-gram viewer를 만들었는데
+사람들의 언어 패턴을 시대별로 분석하기도 했음.
+
+https://books.google.com/ngrams
+
+#회문 판별하기
+
+회문은 순서를 거꾸로 읽어도 제대로 읽은 것과 같은 단어와 문장
+
+ex) LEVEL
+
+#반복문으로 문자 검사하기
+
+word=input("단어를 입력하세요:")
+
+is_palindrome=True
+for i in range(len(word)//2):
+	if world[i]!=[-1-i]:
+	is_palindrome=False
+	break
+print(is_palindrome)
+
+또는
+
+word=input()
+print(word==word[::-1])
+
+또는
+
+world=input()
+world==''.join(reversed(word))
+
+''.join(reversed(word)) -> word 리스트를 뒤집음

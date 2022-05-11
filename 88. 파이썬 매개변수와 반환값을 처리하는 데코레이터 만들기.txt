@@ -1,0 +1,54 @@
+#매개변수와 반환값을 처리하는 데코레이터 만들기
+
+
+def trace(func):
+	def wrapper(a,b):
+		r=func(a,b)
+		print('{0} (a={1} , b={2} ) -> {3}'.format(func.__name__,a,b,r) )
+
+		return r
+	return wrapper
+
+@trace
+def add(a,b):
+	return a+b
+
+print( add(10,20) )
+
+실행시
+
+add( a=10 , b=20 ) -> 30
+30 이 출력이 됨.
+
+#가변 인수 함수 데코레이터
+매개변수가 고정되지 않은 함수인데 이때는 wrapper 함수를 가변 인수 함수로 만들면 됨.
+
+def trace(func):
+	def wrapper(*args,**kwargs):
+		r=func(*args,**kwargs)
+		print(' {0} (args={1} , kwargs={2} ) -> {3} '.format(func.__name__ , args, kwargs, r ) )
+		
+		return r
+	return wrapper
+
+@trace
+def get_max(*args):
+	return max(args)
+
+@trace
+def get_min(**kwargs):
+	return min(kwargs.values() )
+
+print(get_max(10,20) )
+print(get_min(x=10,y=20,z=30) )
+
+입력시
+
+get_max(args=(10,20) , kwargs={} ) -> 20
+20
+get_min(args=() , kwargs={'x':10 , 'y'=20 , 'z'=30} ) -> 10
+10
+출력이 됨.
+
+
+

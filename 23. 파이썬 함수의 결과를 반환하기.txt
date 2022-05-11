@@ -1,0 +1,8 @@
+#함수의 결과를 반환하기
+
+def add(a,b):
+	return a+b -> 반환
+x=add(10,20) -> 호출
+print(x) 할떄 30이 나옴
+
+또는 print(add(10,20)) 으로 가능함

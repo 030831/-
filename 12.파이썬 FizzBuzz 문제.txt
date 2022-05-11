@@ -1,0 +1,49 @@
+#FizzBuzz 문제
+
+매우 간단한 프로그래밍 문제이며 규칙은 다음과 같음
+
+1. 1에서 100까지 출력
+2. 3의 배수는 Fizz출력
+3. 5의 배수는 Buzz출력
+4. 3과 5의 공배수는 FizzBuzz 출력
+
+1번 
+for i in range(1,101):
+print(i)
+
+2,3번
+
+for i in range(1,101):
+	if i%3==0:
+print('Fizz')
+else:
+print('i')
+
+for j in range(1,101):
+	if j%5==0:
+print('Buzz')
+else:
+print(j)
+
+4번
+for i in range(1,101):
+	if(i%3==0 and i%5==0)
+print('Fizz Buzz')
+else:
+print(i)
+
+#코드 단축하기
+
+1번
+
+for i in range (1,101):
+    print('Fizz'*(i%3==0)+'Buzz'*(i%5==0) or i)
+
+#3의 배수이면서 5의 배수를 논리연산자 없이 출력하기
+
+for i in rage(1,101):
+	if i%15==0:
+print(i)
+
+
+

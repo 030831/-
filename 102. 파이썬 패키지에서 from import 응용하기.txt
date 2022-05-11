@@ -1,0 +1,71 @@
+#패키지에서 from import 응용하기
+
+
+import calcpkg처럼 import 패키지 형식으로 패키지만 가져와서
+모듈을 사용할때는 calcpkg 패키지의 __init__.py를 아래와같이 수정함
+
+from.import 모듈
+
+from . import operation #현재 패키지에서 operation 모듈을 가져옴
+from . import geometry #현재 패키지에서 geometry 모듈을 가져옴
+
+파이썬에는 __init__.py 파일은 폴더가 패키지로 인식되는 역할도 하고
+이름 그대로 패키지를 초기화하는 역할도 함
+.(점)은 현재 패키지 라는 뜻임
+
+import calcpkg #calcpkg 패키지만 가져옴
+
+
+print(calcpkg.operation.add(10,20))
+print(calcpkg.operation.mul(10,20))
+
+print(calcpkg.geometry.triangle_are(30,40))
+print(calcpkg.geometry.rectangle_area(30,40)) 입력시
+
+30
+200
+600.0
+1200 <- 정상적으로 출력이 됨.
+
+calcpkg의 __init__.py에서 하위 모듈을 함꼐 가져오게 만들었으므로
+import calcpkg로패키지만 가져와도  calcpkg.operation.add(10,20) 처럼 사용할수 있음.
+
+
+#from import로 패키지에 속한 모든 변수 , 함수 , 클래스 가져오기
+
+from calcpkg import * #calcpkg 패키지의 모든 변수 , 함수 , 클래스를 가져옴
+
+print(add(10,20))
+print(mul(10,20))
+
+입력시 add가 정의되어있지않다고 오류가 생김.
+
+왜냐하면 __init__.py에서 모듈만 가져왔을뿐
+모듈안의 함수를 가져오지 않았기 때문임.
+
+operation , geometry는 들어있지만 , add , mul처럼 함수 이름은 없음.
+
+현재 패키지라는것을 명확하게 나타내기 위해 모듈앞에 .(점)을 붙임
+
+from .operation import add,mul
+from .geometry import triangle_area , rectangle_area
+
+이런 형식으로 써주면
+print(add(10,20)) 입력시
+30이 정상적으로 출력이 됨.
+
+또는
+
+from .operation import * #현재 패키지의 operation모듈에서모든 변수,함수,클래스를가져옴
+from .geometry import *
+
+이런 형식으로 해도 상관없음.
+
+또는
+
+import calcpkg
+
+print(calcpkg.add(10,20)) 이렇게 사용 가능함.
+
+파이썬은 패키지안에 또다른 패키지를 만들수 있음.
+

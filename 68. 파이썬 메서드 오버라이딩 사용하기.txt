@@ -1,0 +1,45 @@
+#메서드 오버라이딩 사용하기
+
+
+파생클래스에서 기반클래스의 메서드를 새로 정의하는 오버라이딩에 대해 탐구.
+
+class Person:
+	def greeting(self):
+		print('안녕하세요')
+
+class Student(Person):
+	def greeting(self):
+		print("안녕하세요. 저는 파이썬 코딩도장 학생입니다 ")
+
+james=Student()
+james.greeting()
+입력시
+
+안녕하세요. 저는 파이썬 코딩도장 학생입니다. <- 출력이 됨.
+
+오버라이딩은 무시하다, 우선하다 라는 뜻을 가지고 있음
+james는 Student로 설정했기 때문에 Student 클래스에 먼저 가서 greeting를 먼저 찾아감.
+
+메서드 오버라이딩은 보통 프로그램에서 어떤 기능이 같은 메서드 이름으로
+계속 사용되어야 할 떄 메서드 오버라이딩을 사용한다.
+
+
+class Person:
+	def greeting(self):
+		print('안녕하세요')
+
+class Student(Person):
+	def greeting(self):
+		super().greeting() #super로 기반 클래스의 메서드 호출
+		print("안녕하세요. 저는 파이썬 코딩도장 학생입니다 ")
+
+james=Student()
+james.greeting()
+
+
+안녕하세요
+저는 파이썬 코딩도장 학생입니다 <- 가 출력이 됨. 중복은 알아서 빼줌
+
+
+중복되는 기능은 파생클래스에서 다시 만들지 않고 , 기반 클래스의 기능을 사용하면됨.
+메서드 오버라이딩은 원래 기능을 유지하면서 새로운 기능을 덧붙일 떄 사용함.

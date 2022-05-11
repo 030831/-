@@ -1,0 +1,91 @@
+3항연산
+
+3개의 요소로 이루어지는 3항 연산은
+"x if C else y" 의 형태로 작성이 된다.
+- C : True 또는 False 를 평가할 조건식(conditional expression) 또는 값
+- x : C의 평가 결과가 True 일 때 사용할 값
+- y : C의 평가 결과가 True 가 아닐 때 사용할 값
+
+
+3개의 정수를 받아서 최솟값 받기
+print((a if a<b else b) if ((a if a<b else b)<c) else c)
+
+
+if a%2==0:
+
+if 문 끝에 : 붙이기
+else 도 포함
+
+if a<0 and a%2==0:
+        print("A")
+
+#들여쓰기
+if (a>=90) :
+    print("A")
+
+elif (a>=70) :
+    print("B")
+
+if 다음에  엔터키를 누르고 4칸정도 띄워놔야지 인식을함
+elif는 else if의 줄임말
+
+for i in range(n+1) :
+  print(i)
+range(끝)
+range(시작, 끝)
+range(시작, 끝, 증감)
+
+--------------------------------------
+#어려웠던 문제
+
+a=0
+b=int(input())
+c=0
+while c<b:
+    a=a+1
+    c=c+a
+    if c>=b:
+        print(a)
+        break
+
+--------------------------------------
+#파이썬 비트 단위 연산자
+
+~(bitwise not), &(bitwise and), |(bitwise or), ^(bitwise xor),
+<<(bitwise left shift), >>(bitwise right shift)
+
+--------------------------------------
+#1의 보수와 2의 보수
+
+000101 5
+
+111010 -6 (1의 보수)
+
+111011 -5 (2의 보수)
+
+(111111 = -1)
+
+111110 -2
+
+111101 -3 
+
+111100 -4 
+
+111001 -5 
+
+111010 -6
+
+--------------------------------------
+#소숫점 n번쨰까지 반올림 하여 출력하기
+
+round(a,2) 
+print('%.2f MB' %k)
+
+
+--------------------------------------
+
+n번째 오름차순 정수 출력하기
+
+a=map(int,input().split())
+b=sorted(a)
+print(b[1])

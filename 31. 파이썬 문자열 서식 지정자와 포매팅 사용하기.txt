@@ -1,0 +1,135 @@
+#문자열 서식 지정자와 포메팅 사용하기
+
+제임스의 평균점수는 85.3점입니다
+마리아의 평균점수는 98.7점입니다.
+
+이름을 바꿀떄 특정 값을 바꾸고자 할때
+서식지정자 또는 문자열 포메팅을 사용함.
+
+#서식지정자로 문자열 넣기
+
+'I am %s.'%'james' 입력시
+'I am james.가 출력 됨
+
+물론 변수로도 지정할수있음
+
+ex)
+name = 'maria'
+'I am %s.'%name
+'I am maria'가 출력이됨
+
+#서식 지정자로 숫자 넣기
+
+'I am %d years old.'%20
+'I am 20 years old.'가 출력됨
+
+'%f'%2.3
+'2.300000'이 출력됨
+
+'%.2f'%2.3
+'2.30'이 출력됨
+
+문자열은 %s 정수는 %d 실수는 %f
+
+#서식 지정자로 문자열 정렬하기
+
+'%10s'%'python'
+'    python'이 출력됨. %뒤에 숫자를 넣으면 지정된 길이로 문자열을 넣음
+
+왼쪽부터 출력하기 위해서는
+
+'%-10s'%'python' 
+'python    '
+
+#서식 지정자로 문자열 안에 값 여러개 넣기
+
+값들을 콤마로써 구분해야하고 여러개일때는 괄호로 묶어야함
+
+'Today is %d %s'%(3,'Aprill')
+'Today is 3 Aprill'이 출력됨
+
+#format 메서드 사용하기
+
+'Hello,{0}'.fomat('world!')
+'Hello,world!' 출력
+
+'Hello,{0}'.format(100)
+'Hello,100'
+
+#format 메서드로 값을 여러개 넣기
+'Hello,{0} {2} {1}'.format('python' , 'Script' , 3.6)
+'Hello python 3,6 Scrip' 출력
+
+또는
+'{0} {0} {1} {1}'.format('python','Script')
+'python python Script Script' 출력
+
+만약 {}만 출력하면 순서대로 들어감
+
+#format 메서드에서 인덱스 대신 이름 지정하기
+
+'Hello,{language} {version}'.format(language='python',version=3.6)
+'Hello python 3,6'
+
+#문자열 포메팅에 변수를 그대로 사용하기
+
+language='python'
+version=3.6
+f'Hello , {language} {version}' (f는 format 의 약자)
+'Hello python 3.6' 출력 
+
+#format 메서드로 문자열 정렬하기
+
+'{인덱스:<길이}'.format(값)
+'{0:<10}'.format('python')
+'python    '
+
+오른쪽으로 정렬할려면
+
+부등호를 >로 바꾸면됨.
+
+#format 메서드로 문자열 정렬하기
+
+'{:>10}.format('python')
+'    python'
+
+#숫자 개수 맞추기
+
+'%03d'%1
+'001'  3은 자릿수 , d는 1이 옴
+
+'{0:03d}'.format(35)
+'035'
+
+소수점 이하 자릿수를 지정하고 싶으면 %08.2f처럼 .(점)뒤에 자릿수를 지정해줌
+
+"%08.2f"%3.6
+"00003.60"
+
+"{0:08.2f}'.format(150.37)
+'00150.37' 
+
+#채우기와 정렬을 조합해서 사용하기
+
+'{0:0<10}'.format(15)
+'1500000000'
+
+'{0:0>10}'.format(15)
+'0000000015'
+
+실수로 만들고 싶으면 실수자료형 f를 써주면됨.
+
+'{0:0>10.2f}'.format(15)
+'0000015.00'
+
+#채우기와 정렬을 조합해서 사용하기
+
+채우기 부분에 0이 아닌 공백이나 문자를 넣을수 있음
+
+'{0:x>10}'.format(15)
+'xxxxxxxx15'
+
+'{0: >10}'.format(15) 공백입력
+'        15'
+'{0:>10}'.format(15) 채우기 부분을 생략함
+'        15'

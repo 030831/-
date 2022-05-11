@@ -1,0 +1,72 @@
+#모듈과 패키지 만들기
+
+모듈은 변수 함수 클래스 등을 모아놓은 스크립트 파일이고
+패키지는 여러 모듈을 묶은 것임.
+모듈은 간단한 기능을 담을때 사용하며 , 패키지는 코드가 많고 복잡할 때 사용함
+패키지는 기능들이 모듈 여러개로 잘게 나누어져 있고
+관련된 모듈끼리 폴더에 모여있는 형태임.
+
+
+#모듈 만들기
+2의 거듭제곱을 구하는 모듈을 만들어 보자.
+
+
+다음 내용을 프로젝트 폴더 안에 square2.py파일로 저장함.
+
+base=2
+
+def square(n):
+	return base**n
+모듈을 만들었을때 모듈 이름은 square2임
+스크립트 파일에서 확장자 .py를 제외하면 모듈이름이 됨.
+
+#모듈 사용하기
+
+다음 내용을 프로젝트 폴더 안에 main.py파일로 저장한 뒤 실행해보자.
+이때 square2.py파일과 main.pu파일은 반드시 같은 폴더에 있어야함.
+
+import square2
+
+print(square2.base) #모듈의 변수를 사용
+print(square2.squaer(10)) #모듈의 함수를 사용함.
+입력시
+
+2 
+1024 가 출력이 됨.
+
+#from import로 변수 함수 가져오기
+
+from square2 import base,square
+
+print(base)
+2가 출력이 됨
+print(square(10)) 입력시 #굳이 모듈이름을 붙이지 않고 사용할 수 있음
+1024가 출력이 됨.
+
+#모듈에 클래스 작성하기
+
+다음 내용을 프로젝트 폴더 안에 person.py 파일로 저장하자.
+
+class Person:
+	def __init__(self,name,age,address):
+		self.name=name
+		self.age=age
+		self.address=address
+	def greeting(self):
+		print("안녕하세요, 저는 {0} 입니다.".format(self.name) )
+
+이제 main.py 파일을 다음과 같이 고쳐서 실행하면
+
+import person
+
+maria=person.Person('마리아' , 20 , '서울시 ' )
+maria.greeting()
+
+안녕하세요. 저는 마리아 입니다 <- 출력이 됨.
+
+
+또는
+
+from person import Person #from 모듈 import 클래스 이름
+
+

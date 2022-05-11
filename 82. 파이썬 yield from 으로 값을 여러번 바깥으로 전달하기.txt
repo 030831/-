@@ -1,0 +1,47 @@
+#yield from 으로 값을 여러번 바깥으로 전달하기
+
+
+
+def number_generator():
+	x=[1,2,3]
+	for i in x:
+		yield i
+
+for i in number_generator():
+	print(i)
+1
+2
+3이 출력이 됨.
+
+이런경우에는 매번 반복문을 사용하지 않고, yield from을 사용하면 됨.
+
+
+def number_generator():
+	x=[1,2,3]
+	yield form x
+
+for i in number_generator():
+	print(i)
+
+1
+2
+3 이 출력이 됨.
+
+#yield from에 제너레이터 객체 지정하기
+
+def number_generator(stop):
+	n=0
+	while n<stop:
+		yield n
+		n+=1
+
+def three_generator():
+	yield from number_generator(3)
+
+for i in three_generator():
+	print(i)
+
+0
+1
+2
+가 출력이 됨.

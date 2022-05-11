@@ -1,0 +1,97 @@
+#람다 표현식과 map , filter , reduce 함수 활용하기
+
+#람다 표현식에 조건부 표현식 사용하기
+
+lambda 매개변수:식1 if 조건식 else 식2
+
+ex)
+
+map을 사용하여 리스트 a에서 3의 배수를 문자열로 반환하기
+
+a=[1,2,3,4,5,6,7,8,9,10]
+print(list(map(lambda x:str(x) if x%3==0 else x,a))
+
+x가 3이면 문자열로 아니면 그냥 x로 출력
+
+[1 , 2 , '3' , 4 , 5 , '6' , 7 , 8,  '9' , 10] 이 출력됨.
+
+
+#주의점
+
+람다 표현식에서 if else를 사용할떄는 :(콜론)을 붙이지 않음.
+
+if를 사용할때 반드시 else를 사용햐야함.
+
+또한 elif 를 사용하수 없음.
+
+아니면 else를 여러번사용가능함
+
+a=[1,2,3,4,5,6,7,8,9,10]
+print(list(map(lambda x:str(x) if x==1 else float(x) if x==2 else x+10, a) )
+
+[ '1' , 2.0 , 13 , 14, 15, 16, 17, 18, 19, 20] 이 출력됨 
+
+알아보기 힘든경우 그냥 def 함수를 사용하는것이 좋음.
+
+def f(x):
+	if x==1:
+		return str(x)
+	elif x==2:
+		return float(x)
+	else:
+		return x+10
+a=[1,2,3,4,5,6,7,8,9,10]
+print(list(map(f,a))
+
+#map에 객체를 여러게 넣기
+
+a=[1,2,3,4,5]
+b=[2,4,6,8,10]
+print( list ( map ( lambda x,y:x*y, a, b) ) )
+
+#filter 사용하기
+
+filter는 반복 가능한 객체에서 특정 조건에 맞는 요소만 가져옴.
+filter에 지정한 함수의 반환값이 True 일때만 해당 요소를 가져옴.
+
+filter (함수 , 반복 가능한 객체)
+
+def f(x):
+	return x>5 and x<10
+a=[8,3,2,10,15,7,1,9,0,11]
+print( list ( filter ( f , a ) )
+[8,7,9] 가 출력됨.
+
+return이 참일때만 요소를 가져오고 
+거짓이면 요소를 버림.
+
+#filter를 람다 표현식으로 사용하기
+
+a=[8,3,2,10,15,7,1,9,0,11]
+print ( list ( filter ( lambda x:x>5 and x<10 , a ) )
+
+#reduce 사용하기
+
+reduce는 반복 가능한 객체의 각 요소를 지정된 함수로 처리한 뒤
+이전 결과와 누적해서 반환하는 함수임
+
+from functools import reduce
+reduce(함수,반복가능한 객체)
+
+def f(x,y):
+	retrun x+y
+a=[1,2,3,4,5]
+from functools import reduce
+print (reduce(f,a)) 입력시
+15가 출력됨.
+
+1+2=3
+3+3=6
+6+4=10
+10+5=15 순서대로 진행됨.
+
+#람다 표현식으로 reduce 사용하기
+
+a=[1,2,3,4,5]
+from functools import reduce
+print ( reduce ( lambda x,y:x+y , a) )

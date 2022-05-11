@@ -1,0 +1,102 @@
+#함수 안에서 함수를 만들기
+
+def print_hello():
+	hello='Hello,world!'
+	def print_message():
+		print(hello)
+	print_message()
+
+print_hello()
+
+실행시 Hello,world!가 출력이 됨.
+
+
+두번째 함수에서 hello가 없기 때문에
+첫번째 함수에서 hello의 값을 찾음.
+
+즉 바깥쪽 함수의 지역변수는 그 안에 속한 모든 함수에서 접근할수있음.
+
+hello는 지역변수 이지만
+두번째 함수까지 지역범위에 포함이 됨.
+
+
+#지역 변수 변경하기
+
+
+안쪽함수에서 바깥쪽함수의 지역변수를 변경해보자.
+
+def A():
+	x=10
+	def B():
+		x=20
+	B()
+	print(x)
+A()
+
+실행결과는 10 임.
+
+파이썬에서는 함수에서 변수를 만들면 항상 현재 함수의 지역변수가 됨.
+
+def A():
+	x=10
+	def B():
+		x=20
+
+변수 이름은 같지만 서로 다른 변수임.
+
+현재 함수의 바깥쪽에있는 지역 변수의 값을 변경하려면 nonlocal 키워드를 사용해야함.
+
+def A():
+	x=10
+	def B():
+		nonlocal x #현재 함수의 바깥쪽에 지역 변수를 끄집어옴. 
+		x=20  # A 지역 변수 x에 20 할당
+	B()
+	print(x)
+A()
+
+이때 def A()의 x와 def B()의 x는 같은 변수가 됨.
+즉 nonlocal 함수는 바깥쪽 변수를 자기껄로 끄집어옴.
+
+#nonlocal이 변수를 찾는 순서.
+
+def A():
+	x=10
+	y=100
+	def B():
+		x=20
+		def C():
+			nonlocal x
+			nonlocal y
+			x=x+30
+			y=y+300
+			print(x)
+			print(y)
+		C()
+	B()
+A()
+
+50
+400이 출력됨.
+즉 가장 가까운 함수부터 먼저 찾음
+
+함수가 몇단계든지 상관없이 global 키워드를 사용하면 무조건 전역변수를 사용하게됨.
+
+
+x=1
+def A():
+	x=10
+	def B():
+		x=20
+		def C():
+			global x
+			x=x+30
+			print(x)
+		C()
+	B()
+A()
+이때 31이 출력됨.
+
+global은 무조건 전역 변수를 바로 적용함.
+
+전역 변수를 많이 쓰면 코드를 볼때 헷갈리기 때문에 가급적 자제하는게 좋음.

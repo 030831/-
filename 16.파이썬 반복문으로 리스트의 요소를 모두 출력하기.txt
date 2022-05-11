@@ -1,0 +1,52 @@
+#반복문으로 리스트의 요소를 모두 출력하기
+a=[1,2,3,4,5]
+for i in a:
+print(i)
+입력시 1 2 3 4 5가 출력이 됨
+(즉 a 리스트의 모든 인덱스를 출력함)
+
+for i in [12,3,4,5] 이렇게 해줘도 무방함
+
+#인덱스와 요소를 함께 출력하기 
+
+a=[1,2,3,4,5]
+for index,value in enumerate(a):
+print(index,value)
+입력시 
+0 1
+1 2
+2 3
+3 4
+4 5 가 출력이 됨. 앞의 숫자는 n번째 , 뒤의 숫자는 n번째의 리스트 값이다.
+
+index와 value는 다른 이름으로 바꿔도 무방함.
+
+인덱스 1부터 출력하고 싶으면 +1을 해주면됨.
+
+print(index+1,value)
+입력시
+
+1 2
+2 3
+3 4
+4 5
+이렇게 출력이 됨 
+또는
+
+for index,value in enumerate(a,start=1)
+print(index,value)
+
+입력시
+1 1
+2 2
+3 3
+4 4
+5 5 가 출력이 됨
+
+#while 반복문으로 리스트 출력하기
+a=[1,2,3,4,5]
+i=0
+while i<len(a):
+print(a[i])
+i +=1
+

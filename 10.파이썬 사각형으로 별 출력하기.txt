@@ -1,0 +1,30 @@
+#사각형으로 별 출력하기
+
+for i in range(횟수): -> 세로 처리 코드
+	for j in range(횟수) -> 가로처리 코드
+
+
+바깥쪽이 세로 코드이고 안쪽이 가로 코드임
+
+for i in range(5):
+    for j in range(5):
+        print(j,end=' ')
+    print(i)
+
+일때
+
+0 1 2 3 4 0
+0 1 2 3 4 1
+0 1 2 3 4 2
+0 1 2 3 4 3
+0 1 2 3 4 4
+
+for i in range(5):
+    for j in range(5):
+        print(' * ',end=' ')
+    print()
+*****
+*****
+*****
+*****
+*****

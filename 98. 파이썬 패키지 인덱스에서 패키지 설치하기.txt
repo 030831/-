@@ -1,0 +1,38 @@
+#파이썬 패키지 인덱스에서 패키지 설치하기
+
+
+파이썬은 파이썬 표준라이브러리 외에도 파이썬 패키지 인덱스를 통해
+다양한 패키지를 사용할 수 있음.
+
+명령만 입력하면 원하는 패키지를 인터넷에서 다운로드 하여 설치해줄뿐만 아니라
+관련된 패키지까지 자동으로 설치해주므로 매우 편리함
+
+#pip 설치하기
+
+pip는 파이썬 패키지 인덱스의 패키지 관리 명령어 이며
+윈도우용 파이썬에는 기본적으로 내장되어있음
+
+리눅스와 macOS에서는 콘솔에서 다음과 같은 방법으로 설치하면됨.
+
+$ curl -0 https://bootstrap.pypa.io/get-pip.py
+$ sudo python3 get-pip.py
+
+#pip로 패키지 설치하기
+
+pip install 패키지 를 입력하면됨.
+
+윈도우에서는 cmd를 실행하고
+
+c:\Users\dojang>pip install requests 를 입력해주면됨
+
+
+python에 -m 옵션을 지정해서 pip를 실행할수 있음.
+
+c:\Users\dojang>python -m pip install requests 
+
+#import로 패키지 가져오기
+
+import requests #pip로 설치한 repuests 패키지를 가져옴
+r=requests.get('http://www.google.co.kr')
+r.status_code 입력시
+200이 정상적으로 출력이 됨.

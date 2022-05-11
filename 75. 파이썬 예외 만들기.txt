@@ -1,0 +1,39 @@
+#예외 만들기
+
+
+프로그래머가 직접 만든 예외를 사용자 정의 예외라고 함
+
+Exception을 상속받아서 새로운 클래스를만들면 됨
+
+
+class 예외이름(Exception):
+	def __init__(self):
+		super().__init__('에러메세지')
+
+
+#입력된 숫자가3의 배수가 아닐 때 발생시킬 예외를 만들어보자.
+
+
+
+class NotThreeMultipleError(Exception):
+
+	def __init__(self):
+		super().__init__('3의 배수가 아닙니다')
+
+def three_multiple():
+	try:
+
+		x=int(input())
+		if x%3==0:
+			raise NotThreeMultipleError
+		print(x)
+		
+	except Exception as e:
+		print('예외가 발생했습니다 . ' , e)
+
+three_multiple()
+
+5 입력시
+
+예외가 발생했습니다. 3의 배수가 아닙니다 <-출력이 됨.
+

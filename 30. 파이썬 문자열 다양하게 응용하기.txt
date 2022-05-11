@@ -1,0 +1,144 @@
+#문자열 응용하기
+
+#문자열 바꾸기
+
+replace('바꿀 문자열', '새문자열')
+
+'Hello world'.replace('world','python')
+입력시
+'Hello, python'이 출력됨.
+
+결과를 유지하고 싶으면
+
+s='Hello world'
+s=s.replace('world' , 'python')
+s 입력시
+'Hello , python' 이 출력됨
+
+translate 는 문자열 안의 문자를 다른 문자로 바꿈
+
+ex)
+table=str.maketrance('aeiou' , '12345')
+'apple'.translate(table) 입력시
+'1pp12'가 출력 됨.
+
+[aeiou]
+[12345]
+위 괄호에서 apple이 첫번째 괄호에 해당하면 밑의 괄호의 값으로 변환됨
+
+#문자열 분리하기
+
+'apple pear grape'.split() 입력시
+['apple' , 'pear' , 'grap']로 분리됨
+
+또는
+'apple,pear,grape'.split(' , ') 단어 사이에 콤마가 있을경우 이런식으로 해주면
+['apple' , 'pear' , 'grap']로 분리됨
+
+#구분자 문자열과 문자열 리스트 연결하기
+
+' '.join(['apple' , 'pear' , 'grape']) 입력시
+'apple pear grape'로 출력됨
+
+'-'.join(['apple' , 'pear' , 'grape']) 입력시
+'apple-pear-grape'로 출력됨
+
+#소문자르 대문자로 바꾸기
+
+'python'.upper() 입력시
+PYTHON이 출력됨
+
+#대문자를 소문자로 바꾸기
+
+'PYTHON'.lower()
+python으로 출력됨.
+
+#왼쪽 공백삭제하기
+
+'    python    '.lstrip() 입력시
+'python    ' 출력
+
+#오른쪽 공백 삭제하기
+
+'    python    '.rstrip() 입력시
+'    python'이 출력
+
+#양쪽 공백 삭제하기
+
+'    python    '.strip() 입력시
+'python'  출력
+
+#왼쪽의 특정 문자 삭제하기
+
+' , python. '.lstrip(',.')
+'python.'  출력
+
+#오른쪽의 특정 문자 삭제하기
+
+' ,python.'.rstrip(',.')
+',python' 이 출력됨
+
+#양쪽의 특정 문자 삭제하기
+
+' , python.'.strip(',.')
+'python'이 출력이됨.
+
+
+#문자열을 왼쪽으로 정렬하기
+
+'python'.ljust(10)
+'python          '
+
+#문자열을 오른쪽으로 정렬하기
+
+'python'.rjust(10)
+'          python'
+
+#문자열을 가운대로 정렬하기
+
+'python'.center(10)
+'  python  '
+
+만약 남는 공간이 홀수가되면 왼쪽에 공백이 한칸 더 들어감
+
+#메서드 체이닝
+
+메서드를 줄줄이 연결한 것
+
+'python'.rjust(10).upper()
+'    PYTHON' 이 입력됨
+
+input().split() 또한 메서드 체이닝임.
+
+#문자열 왼쪽에 0 채우기
+
+'35'.zfill(4)
+'0035'
+
+'3.5'.zfill(6)
+'0003.5'
+
+'hello'.zfill(10)
+'000000hello'
+
+#문자열 위치 찾기
+
+find('찾을 문자열')
+
+'apple'.find('pl')
+2
+
+'apple'.find('xy')
+-1 (없는경우 -1 출력)
+
+#오른쪽에서부터 문자열 위치 찾기
+
+'apple pineapple'.rfind('pl')
+12
+'apple pineapple'.rfind('xy')
+-1
+
+#문자열 개수 새기
+
+'apple pineapple'.count('pl')
+2

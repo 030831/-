@@ -1,0 +1,39 @@
+#하위 코루틴의 반환값 가져오기
+
+yield from 에 코루틴을 지정하면 해당 코루틴에서 return으로 반환값을 가져옴.
+파이썬 3.3이상부터 사용가능
+
+변수 = yield from 코루틴()
+
+
+def accumulate():
+	total=0
+	while True:
+		x=(yield) #코루틴 바깥에서 값을 받아옴
+		if x is None: #받아온 값이 None이면 
+			return total #합계 total을 반환함.
+		total+=x
+
+def sum_coroutine():
+	while True:
+		total=yield from  accumulate() #accumulate의 반환값을 가져옴
+		print(total) 
+
+co=sum_coroutine()
+next(co)
+
+for i in range(1,11):
+	co.send(i)
+co.send(None)
+
+for i in range(1,101):
+	co.send(i)
+co.send(None)
+
+55
+5050이 출력이 됨.
+
+for 문이 끝나면 None을 send해서
+while문을 끝내고 total을 return함.
+그 반환값을 sum_coroutine함수로 가져옴
+

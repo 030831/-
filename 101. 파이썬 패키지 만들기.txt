@@ -1,0 +1,56 @@
+#패키지 만들기
+
+
+모듈은 스크립트 파일이 한개지만 패키지는 폴더로 구성되어있음
+
+main.py
+
+calcpkg - __init__.py , operation.py , geometry.py 등등
+
+먼저 프로젝트 폴더 안에 calcpkg 폴더를 만듬
+
+새폴더를 만들어서 이름을 지어주면됨.
+
+폴더안에 __init__.py파일이 있으면 해당 폴더는패키지로 인식이 됨.
+
+#패키지에 모듈 만들기
+
+첫번째 모듈은 덧셈,곱셈함수가있는 operation 모듈이고
+두번쨰 모듈은 삼각형,사각형의 넓이 계산함수가 들어있는 geometry 모듈임
+
+def add(a,b):
+	return a+b
+
+def mul(a,b):
+	return a*b
+
+def triangle_area(base,height):
+	return base*hight/2
+
+def rectangle_are(width,height):
+	return width*height
+
+다음 내용을 프로젝트 폴더 안에 main.py 파일로저장한뒤 실행해보자.
+
+import calcpkg.operation
+import calcpkg.geometry
+
+print(calcpkg.operation.add(10,20))
+print(calcpkg.operation.mul(10,20))
+
+print(calcpkg.geometry.triangle_area(30,40))
+print(calcpkg.geometry.rectangle_are(30,40)) 입력시
+
+30
+200
+600.0
+1200 이 출력이 됨.
+
+또는
+from calcpkg.operation import add,mul
+add(10,20)
+30 <- 이렇게 할수도있음.
+
+
+
+

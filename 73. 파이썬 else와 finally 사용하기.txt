@@ -1,0 +1,49 @@
+#else와 finally 사용하기
+
+
+try:
+	실행할 코드
+
+except:
+	예외가 발생했을때 사용할 코드
+
+else:
+	예외가 발생하지 않았을때 실행할 코드
+
+
+
+
+try:
+	x=int(input())
+	y=10/x
+
+except ZeroDivisionError:
+	print('숫자를 0으로 나눌 수 없습니다')
+
+else:
+	print(y)
+
+
+#예외와는 상관없이 항상 코드 실행하기
+
+
+
+try:
+	x=int(input())
+	y=10/x
+
+except ZeroDivisionError:
+	print('숫자를 0으로 나눌 수 없습니다.')
+
+else:
+	print(y)
+
+finally:
+	print('코드 실행이 끝났습니다')
+
+이때 구문 형식은 무조건 지켜져야하며 중간에 else나 except를 뺴면 오류가 생김
+
+
+
+
+

@@ -1,0 +1,63 @@
+#N-gram 만들기
+
+N-gram은 문자열에서 N개의 연속된 요소를 추출하는 방법임
+
+만약 Hello 라는 문자열을 단위 2-gram으로 추출하면
+He
+el
+ll
+lo
+이렇게 됨
+
+#반복문으로 N-gram 출력하기
+
+text='Hello'
+
+for i in range(len(text)-1):
+	print(text[i],text[i+1],sep=' ')
+He
+el
+ll
+lo 가 출력됨
+
+text='this is python script'
+words=text.spit()
+
+for i in range(len(words)-1):
+	print(words[i],words[i+1])
+this is
+is python
+python script
+
+#zip으로 2-gram 만들기
+
+text='hello'
+two_gram=zip(text,text[1:])
+for i in two_gram:
+	print(i[0] , i[1] , sep=' ')
+He
+el
+ll
+lo
+
+또는
+
+text='hello'
+list(zip(text,text[1:]))
+[('h' , 'e' ) , ('e' , 'l') , ('l' , 'l' ) , ('l' , 'o')]
+
+#텍스트가 문장일때
+
+text='this is python script'
+words=text.split()
+list(zip(words,words[1:]))
+[ ('this' , 'is' ) , ('is' , 'python') , ('python' , 'script') ]
+
+#zip과 리스트 표현식으로 N-gram 만들기
+
+text='hello'
+[text[i:] for i in range(3)] 입력시
+['hello' , 'ello' , 'llo'] 가 출력됨
+
+0번부터 끝까지 , 1번부터 끝까지 , 2번부터 끝까지
+

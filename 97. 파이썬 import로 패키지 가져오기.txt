@@ -1,0 +1,63 @@
+#import로 패키지 가져오기
+
+
+패키지는 특정 기능과 관련된 여러 모듈들을 묶은 것인데 , 패키지에들어이있는 모듈도
+import 를 사용하여 가져옴,
+
+import 패키지.모듈
+import 패키지.모듈1,패키지.모듈2
+
+패키지.모듈.변수
+패키지.모듈.함수()
+패키지.모듈.클래스()
+
+
+import urllib.request
+
+response=urllib.request.urlopen('https:///www.google.co.kr')
+response.status 입력시
+200이 출력됨
+200은 http의 상태 코드이며 웹서버가 요청을 제대로 처리했다는 의미임.
+
+#import as로 패키지 모듈 이름 지정하기
+
+import urllib.request as r
+
+response=r.urlopen('https:///www.google.co.kr')
+response.status 입력시
+200이 정상적으로 출력이됨.
+
+#from import 로 패키지의 모듈에서 일부만 가져오기
+
+from 패키지.모듈 import 변수
+from 패키지.모듈 import 함수
+from 패키지.모듈 import 클래스
+from 패키지.모듈 import 변수,함수,클래스
+
+from urllib.request import Request , urlopen
+
+req=Request('https:///www.google.co.kr')
+response=urlpen(req)
+reponse.status 입력시
+200이 정상적으로 출력이 됨.
+
+
+
+from urllib.request import * #urllib의 request 모듈에서 모든 변수 , 함수 , 클래스를 가져옴.
+req=Request('https:///www.google.co.kr')
+response=urlpen(req)
+reponse.status 입력시
+200이 정상적으로 출력이 됨.
+
+
+#from import로 패키지의 모듈 일부를 가져온 뒤 이름 지정하기
+
+from 패키지.모듈 import 변수 as 이름
+from 패키지.모듈 import 변수 as 이름 , 함수 as 이름 , 클래스 as 이름
+
+from urllib.request import Request as r , urlopen as u
+req=r('https:///www.google.co.kr')
+response=u(req)
+response.status 입력시
+200이 정상적으로 출력이 됨.
+

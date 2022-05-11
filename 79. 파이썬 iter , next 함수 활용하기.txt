@@ -1,0 +1,93 @@
+#iter , next 함수 활용하기
+
+
+iter는객체의 __iter__메서드를 호출해주고
+next는 객체의 __next__메서드를 호출해줌
+
+
+it=iter(range(3))
+next(it)
+0 출력
+next(it)
+1출력
+next(it)
+2출력
+next(it)
+예외 발생.
+
+
+iter는 반복 가능한 객체에서 이터레이터를 반환하고
+next는 이터레이터에서 값을 차례대로 꺼냄.
+
+
+
+#iter
+
+iter는 반복을 끝낼 값을 지정하면 특정 값이 나올때 반복을 끝냄.
+이 경우 반복 가능한 객체 대신 호출 가능한 객체를 넣어줌.
+참고로 반복을 끝낼 값을 sentinel 이라고 부르는데 이를 감시병 이라는 뜻임
+호출 가능한 객체를 넣어야 하므로 매개변수가없는 함수 또는 람다 표현식으로 만들어 줌.
+
+
+import random
+it=iter(lambda : random.randint(0,5) , 2] #0~5까지 무작위로하고 2가 나오면 끝내겠다.
+
+next(it)
+0
+next(it)
+3
+next(it)
+2가나올시 끝냄.
+
+#반복문으로 만들기
+
+import random
+
+for i in iter(lambda : random.randint (0,5) , 2) :
+	print(i,end=' ')
+iter 함수를 활용하면 if 조건문으로 매번 숫자가 2인지 검사하지 않아도 되므로
+코드가 더 간단해짐
+
+import random
+while True:
+	i=random.randint(0,5)
+	if i==2:
+		break
+	print(i,end=' ')
+
+#next
+
+next는 기본 값을 지정할 수 있음.
+기본 값을 지정하면 반복이 끝나더라도 Stoplieration 이 발생하지 않고 기본 값을 출력함
+반복할 수 있을 때는 해당 값을 출력하고 , 반복이 끝났을 때는 기본값을 출력함
+
+it=iter(range(3))
+next(it,10) <- 기본값이 10임
+0
+next(it,10)
+1
+next(it,10)
+2
+next(it,10)
+10 <- 이후에 계속 기본값인 10이 출력이 됨.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

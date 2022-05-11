@@ -1,0 +1,77 @@
+#다중 상속 사용하기
+
+다중 상속은 여러기반 클래스로부터 상속을 받아서
+파생 클래스를 만드는 방법임.
+
+사람클래스와 대학교 클래스를 만든 뒤
+다중상속으로 대학생 클래스를 만들어 보자.
+
+class Person:
+	def greeting(self):
+		print("안녕하세요")
+
+class University:
+	def manage_credit(self):
+		print('학점 관리')
+
+
+class Undergraduate(Person,University):
+	def study(self):
+		print('공부하기')
+
+james=Undergraduate()
+james.greeting()
+jammes.manage_credit()
+james.study() 입력시
+
+
+안녕하세요
+학점관리
+공부하기 <- 가 출력이 됨.
+파생클래스에 값이 없으면 기반클래스로 올라가서 값을 찾아서 호출함.
+
+
+#다이아몬드 상속
+
+class A:
+	def greeting(self):
+		print("안녕하세요. A입니다")
+
+class B(A):
+	def greeting(self):
+		print("안녕하세요.B입니다")
+class C(A):
+	def greeting(self):
+		print("안녕하세요.C입니다")
+
+class D(B,C)
+	pass
+
+x=D()
+x.greeting()
+
+
+왼쪽부터 수행이 되기 때문에
+안녕하세요. B입니다 <- 출력이 됨.
+
+
+	A
+B		C
+	D
+
+D에서 B,C로
+B,C는 A로 가기 때문에 다이아몬드 상속이라고 함.
+다이아몬드 상속은 굳이 안쓰는걸 추천함.
+
+#메서드 탐색 순서 확인하기
+
+D.mro() 를 입력하면
+메서드 탐색 순서가 나옴.
+
+
+
+
+
+
+
+

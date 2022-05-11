@@ -1,0 +1,54 @@
+#세트 사용하기
+
+파이썬은 집합을 표현하는 세트(set)라는 자료형을 사용함
+
+세트는 합집합 , 교집합 , 차집합 등 연산이 가능함
+
+세트는 중괄호 { } 안에 값을 저장하며 각 값은 ,(콤마)로 구분해줌
+
+fruits={'strawberry', 'grape' , 'orange'  , 'pineapple' , 'cherry' }
+fruits 입력시
+{'pineapple ' , 'grape' , 'cherry' , 'orange' , 'strawberry' } 와 같이 랜점으로 낭모
+
+또한 세트에 들어가는 요소는 중복될 수 없음
+
+중복요소가 있을시 하나만 추력됨
+
+세트는 리스트 , 튜플 , 딕셔너리와 달리 [ ] (대괄호)로 특정 요소만 출력할수 없음
+
+#세트에 특정 값이 있는지 확인하기
+
+값 in 세트 사용
+
+fruits={'strawberry', 'grape' , 'orange'  , 'pineapple' , 'cherry' }
+
+'orange' in fruits 입력시
+True 출력
+
+반대로
+
+'ornage' not in fruits 입렭시
+False 출력
+
+#세트 만들기
+
+a=set('apple')
+a 입력시
+{'e' , 'l' , 'a' , 'p' } 만 출력, 중복은 출력 하나만
+
+b=set(range(5))
+b 입력시
+{0,1,2,3,4} 출력
+
+c=set()
+c 입력시
+비어이는딕셔너리가 출력됨
+
+#어떤 자료형인지 판별하기
+
+c={}
+type(c) 입력시
+<class 'dict'> 가 출력됨
+c=set()
+type(c) 입력시
+<class 'set'> 가 출력됨

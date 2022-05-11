@@ -1,0 +1,52 @@
+#파이썬 객체를 파일에 저장하기 , 가져오기
+
+파이썬은 객체를 파일에 저장하는 pickle 모듈을 제공함
+
+객체를 파일을 저장하는 과정을 피클링 , 파일에서 객체를 읽어오는 과정을
+언피클링 이라고함
+
+import pickle
+
+name='james'
+age=17
+address='서울시 서초구 반포동'
+scores={'korean':90 , 'english':95 , 'mathematics':85 , 'science':82}
+
+with open('james.p' , 'wb')as file: #hello.txt 파일을 바이너르 쓰기 모드로 열기
+
+pickle.dump(name,file)
+pickle.dump(age,file)
+pickle.dump(address,file)
+pickle.dump(scores,file) #dump는 객체를 파일에 저장하는 기능
+
+소스코드를 실행하면 .py 파일이 있는 폴더에 james.p 파일이 생성됨
+다른확장자를 사용해도 상관없음.
+
+dump로 객체를 저장할떄는 파일모드 wb로 지정해야함
+
+#언피클링
+
+언피클링은 pickle 모듈의 load를 사용함
+반드시 파일 모드를 바이너리 읽기모드 'rb'로 지정해야함
+
+import pickle
+
+with open('james.p' , 'rb')as file:  #텍스트 파일을 바이너리 읽기모드(rb)로 열기
+	name=pickle.load(file)
+	age=pickle.load(file)
+	address=pickle.load(file)
+	scores=pickle.load(file)
+	print(name,age,address,scores,sep='\n')
+
+마찬가지로 객체를 가져올 때도 pickle.load를 네 번 사용해야 함
+
+#파일 모드 조합
+
+읽기전용 'r'
+파일의 내용을 버림 'w'
+파일 끝에 추가 'a'
+파일이 있으면 에러 'x'
+파일의 내용을 버림 'w+'
+파일 처음부터 쓰기 'r+'
+파일 끝부터 쓰기 'a+'
+파일이 있으면 에러 'x+'

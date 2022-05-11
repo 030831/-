@@ -1,0 +1,71 @@
+#제너레이터 사용하기
+
+제너레이터는 이터레이터를 생성해주는 함수임.
+이터레이터는 클래스에 __iter__ , __next__ , __getitem__ 메서드를 구현해야 하지만
+제너레이터는 함수안에서 yield 라는 키워드만 사용하면 끝임.
+
+제너레이터는 이터레이터보다 훨씬 간단하게 작성할 수 있음.
+제너레이터는 발생자라고 부르기도 함.
+
+함수 안에서 yield를 사용하면 함수는 제너레이터가 되며 
+yield에는 값을 지정함.
+
+
+def number_generator():
+	yield 0
+	yield 1
+	yield 2
+
+for i in number_generator():
+	print(i)
+
+0
+1
+2 가 출력이 됨.
+
+
+#제너레이터 객체가 이터레이터인지 확인하기
+
+g=number_generator()
+
+dir(g) 입력시
+이터레이터인것을 확인할 수 있음.
+
+g.__next__() 입력시
+0이 순서대로 출력이 됨.
+
+함수에 yield만 사용해서 간단하게 이터레이터를 구현할 수 있음.
+이터레이터는 __next__메서드 안에 직접 return으로 값을 반환했지만
+제너레이터는 yield에서 지정한 값이 __next__메서드의 반환값으로 나옴.
+
+제너레이터는 함수의 끝까지 도달하면 예외가 자동으로 발생함.
+
+
+#yield의 동작 과정 알아보기
+
+
+def number_generator():
+	yield 0
+	yield 1
+	yield 2
+
+g=number_generator()
+
+a=next(g)
+print(a)
+
+b=next(g)
+print(b)
+
+c=next(g)
+print(c)
+
+0
+1
+2가 출력이 되는것을 확인할 수 있음.
+
+
+
+
+
+

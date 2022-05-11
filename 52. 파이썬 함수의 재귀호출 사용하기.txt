@@ -1,0 +1,38 @@
+#함수에서 재귀호출 사용하기
+
+함수 안에서 함수 자기자신을 호출하는 방식을
+재귀호출이라고 함.
+
+재귀호출은 일반적인 상황에서는 잘 사용하지는 않지만
+알고리즘을 구현할때 매우 유용함
+
+보통 알고리즘에 따라서 반복문으로 구현한 코드보다
+재귀호출로 구현한 코드가 좀 더 직관적이고 이해하기 쉬움.
+
+
+#재귀호출 사용하기
+
+def hello():
+	print("Hello , Word!')
+	hello()  <- 호출에서 호출을 반복함.
+hello()
+
+파이썬은 최대 1000개까지 재귀호출 가능.
+
+#재귀호출 종료 조건 만들기
+
+def hello(count):
+	if count==0:
+		return
+	print("Hello,world!' , count)
+	count-=1
+	hello(count)
+hello(5)
+
+입력시
+Hello,world! 5
+Hello,world! 4
+Hello,world! 3
+Hello,world! 2
+Hello,world! 1
+가 출력됨.
